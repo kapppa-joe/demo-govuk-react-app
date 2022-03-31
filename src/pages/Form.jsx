@@ -61,10 +61,10 @@ const Form = () => {
 
   const errorsToShow = Object.keys(errors);
 
-  // custom code here.
-  const show_datepicker = () => {
-    console.log("date picker clicked!!")
-  }
+  // comment out to avoid build error
+  // const show_datepicker = () => {
+  //   console.log("date picker clicked!!")
+  // }
 
   return (
     <>
