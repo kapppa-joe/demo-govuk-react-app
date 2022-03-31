@@ -31,11 +31,9 @@ const Start = () => {
           <LI>Watch some videos of our lovely animals.</LI>
         </UL>
         <P>Booking takes around 5 minutes.</P>
-        <Link as={RouterLink} to="/form">
-        <Button icon={<StartIcon fill="white" />} start>
+        <Button as={RouterLink} style={{display: "inline-block"}} to="/form" icon={<StartIcon fill="white" />} start>
           Start Now
         </Button>
-        </Link>
 
         <hr />
         <Heading size="M">Before you start</Heading>
