@@ -5,13 +5,12 @@ import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 import {
-  validateNationality,
+  validateHairColour,
   validateMultiplePets,
   validateFirstName,
   validateDescription,
-  validateDateOfBirth,
-  validateAnimal,
-  validatePetPhoto,
+  validateDateOfAppointment,
+  validateTimeslot,
 } from '../components/validators/form_validators.tsx'
 import Results from '../components/Results.tsx';
 
@@ -62,6 +61,11 @@ const Form = () => {
 
   const errorsToShow = Object.keys(errors);
 
+  // custom code here.
+  const show_datepicker = () => {
+    console.log("date picker clicked!!")
+  }
+
   return (
     <>
       {!hasSubmitted && (
@@ -100,88 +104,100 @@ const Form = () => {
                   validate: validateDescription,
                 })}
               >
-                Description of what you saw
+                Description of what you want to do with our alpacas
               </GovUK.TextArea>
-              <GovUK.FormGroup error={submitCount > 0 && !!errors?.nationality?.message}>
+              <GovUK.FormGroup error={submitCount > 0 && !!errors?.hairColour?.message}>
                 <GovUK.Label mb={4}>
-                  <GovUK.LabelText>Nationality</GovUK.LabelText>
-                  {submitCount > 0 && errors?.nationality?.message && (
-                    <GovUK.ErrorText>{errors?.nationality.message}</GovUK.ErrorText>
+                  <GovUK.LabelText>Preferred Alpaca hair colours</GovUK.LabelText>
+                  {submitCount > 0 && errors?.hairColour?.message && (
+                    <GovUK.ErrorText>{errors?.hairColour.message}</GovUK.ErrorText>
                   )}
                   <GovUK.Checkbox
                     type="checkbox"
-                    value="british"
-                    hint="including English, Scottish, Welsh and Northern Irish"
-                    {...register('nationality', {
-                      validate: validateNationality,
+                    value="black"
+                    {...register('hairColour', {
+                      validate: validateHairColour,
                     })}
                   >
-                    British
+                    Black
                   </GovUK.Checkbox>
                   <GovUK.Checkbox
                     type="checkbox"
-                    value="irish"
-                    {...register('nationality', {
-                      validate: validateNationality,
+                    value="brown"
+                    {...register('hairColour', {
+                      validate: validateHairColour,
                     })}
                   >
-                    Irish
+                    Brown
                   </GovUK.Checkbox>
                   <GovUK.Checkbox
                     type="checkbox"
-                    value="other"
-                    {...register('nationality', {
-                      validate: validateNationality,
+                    value="white"
+                    {...register('hairColour', {
+                      validate: validateHairColour,
                     })}
                   >
-                    Citizen of another country
+                    White
+                  </GovUK.Checkbox>
+                  <GovUK.Checkbox
+                    type="checkbox"
+                    value="cream"
+                    {...register('hairColour', {
+                      validate: validateHairColour,
+                    })}
+                  >
+                    Cream
+                  </GovUK.Checkbox>
+                  <GovUK.Checkbox
+                    type="checkbox"
+                    value="rainbow"
+                    hint="yes, we do have rainbow colour alpacas. :)"
+                    {...register('hairColour', {
+                      validate: validateHairColour,
+                    })}
+                  >
+                    Rainbow colour
                   </GovUK.Checkbox>
                 </GovUK.Label>
               </GovUK.FormGroup>
+            </GovUK.Fieldset>
+              
+            <GovUK.Fieldset>
+              <GovUK.Fieldset.Legend size="M">About your appointment</GovUK.Fieldset.Legend>
               <DateField
                 errorText={submitCount > 0 ? errors?.dob?.message : undefined}
                 input={register('dob', {
-                  validate: validateDateOfBirth,
+                  validate: validateDateOfAppointment,
                 })}
               >
-                Date of birth
+                Which day do you want to visit us on?
               </DateField>
-            </GovUK.Fieldset>
-            <GovUK.Fieldset>
-              <GovUK.Fieldset.Legend size="M">About your pet</GovUK.Fieldset.Legend>
+              
+              {/* <GovUK.Button type="button" onClick={show_datepicker} margin={{direction: "bottom", size: 6}}>Use a datepicker<input type="date" className="datepicker active"/></GovUK.Button> */}
+              
               <GovUK.Select
                 mb={8}
-                label="What animal is your pet"
-                hint="A cat for example"
-                input={register('animal', {
-                  validate: validateAnimal,
+                label="What time slot do you what to book?"
+                input={register('timeslot', {
+                  validate: validateTimeslot,
                 })}
-                meta={{ error: errors?.animal?.message, touched: submitCount > 0 }}
+                meta={{ error: errors?.timeslot?.message, touched: submitCount > 0 }}
               >
                 <option value="">Please select...</option>
-                <option value="cat">Cat</option>
-                <option value="other-feline">Other feline</option>
-                <option value="other-non-feline">Other non feline</option>
+                <option value="10:00-11:30">10:00-11:30</option>
+                <option value="13:00-14:30">13:00-14:30</option>
+                <option value="15:00-16:30">15:00-16:30</option>
               </GovUK.Select>
-              <GovUK.FileUpload
-                mb={8}
-                acceptedFormats=".jpg, .png"
-                hint="This can be in either JPG or PNG format"
-                meta={{ error: errors?.petPhoto?.message, touched: submitCount > 0 }}
-                {...register('petPhoto', { validate: validatePetPhoto })}
-              >
-                Please upload a recent photograph
-              </GovUK.FileUpload>
               <GovUK.MultiChoice
                 mb={8}
-                label="Do you have more than one pet?"
-                meta={{ error: errors?.hasMultiplePets?.message, touched: submitCount > 0 }}
+                label="Do you have children (age below 18) coming with you?"
+                meta={{ error: errors?.hasChildrenAccompany?.message, touched: submitCount > 0 }}
               >
                 <GovUK.Radio
                   type="radio"
                   inline
                   value="yes"
-                  {...register('hasMultiplePets', { validate: validateMultiplePets })}
+                  {...register('hasChildrenAccompany', { validate: validateMultiplePets })}
                 >
                   Yes
                 </GovUK.Radio>
@@ -189,7 +205,7 @@ const Form = () => {
                   type="radio"
                   inline
                   value="no"
-                  {...register('hasMultiplePets', { validate: validateMultiplePets })}
+                  {...register('hasChildrenAccompany', { validate: validateMultiplePets })}
                 >
                   No
                 </GovUK.Radio>
@@ -202,7 +218,7 @@ const Form = () => {
         </form>
       )}
       {hasSubmitted && (
-        <Results backLink="/forms/react-hook-form" onBackClick={() => setHasSubmitted(false)} {...submittedData} />
+        <Results backLink="/" onBackClick={() => setHasSubmitted(false)} {...submittedData} />
       )}
     </>
   );

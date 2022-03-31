@@ -13,11 +13,12 @@ import {Link as RouterLink} from "react-router-dom"
 import StartIcon from "../components/StartIcon";
 import { SmallFontParagraph as Small } from "../components/SmallFontParagraph";
 import SearchAlpaca from "../components/SearchAlpaca";
+import Accordion from "../components/Accordion";
 
 const Start = () => {
   return (
     <section id="start">
-      <Caption>HMRC (Hoofed Mammals Recreation Center)</Caption>
+      <Caption>HMRC (Hoofed Mammals Recreation Centre)</Caption>
       <Heading size="XL">Alpaca Appointment Service</Heading>
 
       <GridRow>
@@ -25,7 +26,7 @@ const Start = () => {
       <GridCol>
         <P>Use this service to:</P>
         <UL mb="4" className="list-small-font">
-          <LI>Book an appointment to play with our alpacas.</LI>
+          <LI>Book an appointment of our alpaca-assisted therapy session.</LI>
           <LI>Learn about animal-assisted therapy.</LI>
           <LI>Watch some videos of our lovely animals.</LI>
         </UL>
@@ -47,8 +48,9 @@ const Start = () => {
           illegally.**
         </Small>
       </GridCol>
-      <GridCol>
+      <GridCol setWidth={"one-quarter"}>
        <SearchAlpaca /> 
+       <Accordion />
       </GridCol>
       </GridRow>
     </section>

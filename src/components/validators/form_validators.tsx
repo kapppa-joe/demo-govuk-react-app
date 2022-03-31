@@ -1,12 +1,12 @@
-export const validateNationality: (value?: string[]) => string | undefined = (value) =>
-  value?.length ? undefined : 'Please select at least one nationality';
+export const validateHairColour: (value?: string[]) => string | undefined = (value) =>
+  value?.length ? undefined : 'Please select at least one hair colour of alpaca';
 export const validateMultiplePets: (value?: string) => string | undefined = (value) =>
-  value ? undefined : 'Please let us know if you have multiple pets';
+  value ? undefined : 'Please let us know if you have children coming with you';
 export const validateFirstName: (value?: string) => string | undefined = (value) =>
   value ? undefined : 'Please enter a first name';
 export const validateDescription: (value?: string) => string | undefined = (value) =>
   value ? undefined : 'Please enter a description';
-export const validateDateOfBirth: (value?: {
+export const validateDateOfAppointment: (value?: {
   year?: number | string;
   month?: number | string;
   day?: number | string;
@@ -16,9 +16,10 @@ export const validateDateOfBirth: (value?: {
     const month = Number(value.month) - 1;
     const day = Number(value.day);
     const testDate = new Date(year, month, day);
-    if (
-      // Check date is in the past
-      testDate < new Date() &&
+    if (testDate <= new Date()) {
+      return 'Please enter a date in the future';
+    } 
+    else if (
       // Is after 1900
       testDate.getFullYear() > 1900 &&
       // and a real date resolves to the inputted date (e.g. month is not 13, not 29th February on a non leap year)
@@ -29,13 +30,7 @@ export const validateDateOfBirth: (value?: {
       return undefined;
     }
   }
-  return 'Please enter a date of birth';
+  return 'Please enter a date of appointment';
 };
-export const validateAnimal: (value?: string) => string | undefined = (value) =>
-  value ? undefined : 'Please select an animal';
-export const validatePetPhoto: (value?: FileList) => string | undefined = (file) =>
-  file && file.length === 1 && ['image/jpeg', 'image/png'].includes(file[0].type)
-    ? undefined
-    : 'Please select a valid photo';
-export const validatePetPhotoString: (value?: string) => string | undefined = (fileString) =>
-  fileString?.length ? undefined : 'Please select a valid photo';
+export const validateTimeslot: (value?: string) => string | undefined = (value) =>
+  value ? undefined : 'Please select an timeslot';

@@ -1,0 +1,20 @@
+@import "node_modules/govuk-frontend/govuk/all"
+// this import statement is not related to the style of this repo.
+// styles of react components are from Govuk React
+// only use it if you need style for vanilla html elements
+
+// body
+//   // seems that GDS transport is not allow for non-govuk websites. so use Helvetica instead.
+//   font-family: helvetica, arial, sans-serif
+//   margin: 0
+
+.list-small-font > li
+  font-size: 0.85em
+
+a
+  text-decoration: none
+
+.datepicker
+  display: none
+  &.active
+    display: inline

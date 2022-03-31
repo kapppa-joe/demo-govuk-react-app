@@ -7,46 +7,40 @@ const Results: React.FC<ResultsProps> = ({
   onBackClick,
   firstName,
   description,
-  nationality,
+  hairColour,
   dob,
-  animal,
-  hasMultiplePets,
-  petPhoto,
-  petPhotoString,
+  timeslot,
+  hasChildrenAccompany,
 }: ResultsProps) => {
-  const [photoString, setPhotoString] = useState<string>(petPhotoString);
-  useEffect(() => {
-    if (petPhoto && petPhoto[0]) {
-      const reader = new FileReader();
-      reader.addEventListener('load', () => {
-        setPhotoString(reader.result as string);
-      });
-      reader.readAsDataURL(petPhoto[0]);
-    }
-  }, [petPhoto]);
 
   return (
     <>
       <GovUK.BackLink as={Link} to={backLink} onClick={onBackClick}>
         Back
       </GovUK.BackLink>
-      <GovUK.Panel title="Application complete">Reference: XBR1N21R3</GovUK.Panel>
+      <GovUK.Panel title="Booking complete">Reference: A7P8K8_77AMA</GovUK.Panel>
+
       <GovUK.LeadParagraph>
-        Enim pariatur pariatur commodo incididunt ad nulla ex eu sunt ut ex id veniam veniam.
+        Your booking  has been received and confirmed.
       </GovUK.LeadParagraph>
+      <GovUK.Heading size="L">What happens next</GovUK.Heading>
       <GovUK.Paragraph>
-        Consequat adipisicing aliquip eiusmod nostrud et proident non id consequat aliquip eiusmod aliquip.
+        You will receive an email which guides you to prepare for the session.
       </GovUK.Paragraph>
+      <GovUK.HintText>
+        Yes, we just somehow magically detected your email address.
+      </GovUK.HintText>
+      <GovUK.SectionBreak margin={4}/>
+      <GovUK.Heading size="M">Your appointment details</GovUK.Heading>
       <GovUK.UnorderedList>
         <GovUK.ListItem>Name: {firstName}</GovUK.ListItem>
         <GovUK.ListItem>Description: {description}</GovUK.ListItem>
-        <GovUK.ListItem>Nationality: {nationality?.join(', ')}</GovUK.ListItem>
+        <GovUK.ListItem>Preferred alpaca hair colour: {hairColour?.join(', ')}</GovUK.ListItem>
         <GovUK.ListItem>
-          Date of birth: {dob?.day}/{dob?.month}/{dob?.year}
+          Date of appointment: {dob?.day}/{dob?.month}/{dob?.year}
         </GovUK.ListItem>
-        <GovUK.ListItem>Animal: {animal}</GovUK.ListItem>
-        <GovUK.ListItem>Multiple pets: {hasMultiplePets}</GovUK.ListItem>
-        <GovUK.ListItem>Pet photo: {photoString && <img alt="Your pet" src={photoString} />}</GovUK.ListItem>
+        <GovUK.ListItem>Time of appointment: {timeslot}</GovUK.ListItem>
+        <GovUK.ListItem>Multiple pets: {hasChildrenAccompany}</GovUK.ListItem>
       </GovUK.UnorderedList>
     </>
   );
@@ -57,21 +51,17 @@ interface ResultsProps {
   onBackClick(): void;
   firstName: string;
   description: string;
-  nationality: string[];
+  hairColour: string[];
   dob: {
     year?: string | number;
     month?: string | number;
     day?: string | number;
   };
-  animal: string;
-  hasMultiplePets: string;
-  petPhoto?: FileList;
-  petPhotoString?: string;
+  timeslot: string;
+  hasChildrenAccompany: string;
 }
 
 Results.defaultProps = {
-  petPhoto: undefined,
-  petPhotoString: undefined,
 };
 
 export default Results;
