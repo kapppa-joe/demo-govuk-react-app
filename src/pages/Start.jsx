@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Heading,
   Caption,
@@ -8,8 +7,9 @@ import {
   GridCol,
   Button,
   GridRow,
-  SearchBox
+  Link
 } from "govuk-react";
+import {Link as RouterLink} from "react-router-dom"
 import StartIcon from "../components/StartIcon";
 import { SmallFontParagraph as Small } from "../components/SmallFontParagraph";
 import SearchAlpaca from "../components/SearchAlpaca";
@@ -30,9 +30,11 @@ const Start = () => {
           <LI>Watch some videos of our lovely animals.</LI>
         </UL>
         <P>Booking takes around 5 minutes.</P>
+        <Link as={RouterLink} to="/form">
         <Button icon={<StartIcon fill="white" />} start>
           Start Now
         </Button>
+        </Link>
 
         <hr />
         <Heading size="M">Before you start</Heading>

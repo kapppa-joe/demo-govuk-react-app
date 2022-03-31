@@ -1,7 +1,10 @@
-import { TopNav, Main, Footer, SearchBox } from 'govuk-react';
-import Crown from './components/Crown'
-import DefaultBreadCrumbs from './components/DefaultBreadCrumbs';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import { TopNav, Main, Footer } from 'govuk-react';
+
+import Form from './pages/Form';
 import Start from './pages/Start';
+import DefaultBreadCrumbs from './components/DefaultBreadCrumbs';
+import Crown from './components/Crown'
 
 function App() {
   return (
@@ -16,7 +19,11 @@ function App() {
       />
         <Main>
           <DefaultBreadCrumbs />
-          <Start />
+            <Routes>
+            <Route path="/start" element={<Start />} />
+            <Route path="/form" element={<Form />} />
+            <Route path="/" element={<Navigate to="/start" />} />
+            </Routes>
         </Main>
       <Footer meta={<Footer.MetaCustom>This website is built solely for personal learning purpose. It is <b>not</b> related to any real-world government service.</Footer.MetaCustom>} />
     </div>
