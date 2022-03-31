@@ -7,7 +7,6 @@ import {
   GridCol,
   Button,
   GridRow,
-  Link
 } from "govuk-react";
 import {Link as RouterLink} from "react-router-dom"
 import StartIcon from "../components/StartIcon";
