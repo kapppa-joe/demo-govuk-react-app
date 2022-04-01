@@ -5,6 +5,7 @@ import Form from './pages/Form';
 import Start from './pages/Start';
 import DefaultBreadCrumbs from './components/DefaultBreadCrumbs';
 import Crown from './components/Crown'
+import MyForm from './pages/MyForm';
 
 function App() {
   
@@ -23,6 +24,7 @@ function App() {
             <Routes>
             <Route path="/start" element={<Start />} />
             <Route path="/form" element={<Form />} />
+            <Route path="/myform" element={<MyForm />} />
             <Route path="/" element={<Navigate to="/start" />} />
             </Routes>
         </Main>
