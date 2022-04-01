@@ -11,16 +11,16 @@ const Accordion = () => {
   return (
     <div className="js-enabled">
       <div
-        class="govuk-accordion"
+        className="govuk-accordion"
         data-module="govuk-accordion"
         id="accordion-default"
         ref={ref}
       >
-        <div class="govuk-accordion__section ">
-          <div class="govuk-accordion__section-header">
-            <h2 class="govuk-accordion__section-heading">
+        <div className="govuk-accordion__section ">
+          <div className="govuk-accordion__section-header">
+            <h2 className="govuk-accordion__section-heading">
               <span
-                class="govuk-accordion__section-button"
+                className="govuk-accordion__section-button"
                 id="accordion-default-heading-1"
               >
                 Alpaca trivia
@@ -29,21 +29,21 @@ const Accordion = () => {
           </div>
           <div
             id="accordion-default-content-1"
-            class="govuk-accordion__section-content"
+            className="govuk-accordion__section-content"
             aria-labelledby="accordion-default-heading-1"
           >
-            <p class="govuk-body">
+            <p className="govuk-body">
             <small>Do you know why you shouldn't kiss an alpaca?
             <br />...... Because it will trigger the alpaca lips!
             </small>
             </p>
           </div>
         </div>
-        <div class="govuk-accordion__section ">
-          <div class="govuk-accordion__section-header">
-            <h2 class="govuk-accordion__section-heading">
+        <div className="govuk-accordion__section ">
+          <div className="govuk-accordion__section-header">
+            <h2 className="govuk-accordion__section-heading">
               <span
-                class="govuk-accordion__section-button"
+                className="govuk-accordion__section-button"
                 id="accordion-default-heading-2"
               >
                 Llama trivia
@@ -52,10 +52,10 @@ const Accordion = () => {
           </div>
           <div
             id="accordion-default-content-2"
-            class="govuk-accordion__section-content"
+            className="govuk-accordion__section-content"
             aria-labelledby="accordion-default-heading-2"
           >
-            <p class="govuk-body">
+            <p className="govuk-body">
             <small>Mr. El Parker owns a vegan cafe. Can you guess what is the name?
             <br />...... Deli Llama!!
             </small>
