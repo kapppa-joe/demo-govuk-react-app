@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# Alpaca Appointment System
+A demo project of react app with Gov.UK style.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Hosted demo: https://demo-react-app-alpaca.netlify.app/
 
-## Available Scripts
+## How this was done
+The project folder itself is created by  create-react-app.
 
-In the project directory, you can run:
+I installed sass, [govuk-react](https://github.com/govuk-react/govuk-react) and [govuk-frontend](https://github.com/alphagov/govuk-frontend/).
 
-### `npm start`
+Govuk-react and govuk-frontend can be used separately. And in my personal opinion, it might be better to just choose one between them, not to use both at the same time.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### govuk-react
 
-### `npm test`
+[govuk-react](https://github.com/govuk-react/govuk-react)
+This library provides some govuk components in React components, which we can readily import in react app.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The componenets are made with "styled-component" way, so the GovUK styles are already embedded in there.
 
-### `npm run build`
+Also the repo has a [storybook](https://govuk-react.github.io/govuk-react/?path=/story/welcome--page) of available components, and some example application demo as well.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Most of this repo is built with this library. The alpaca booking form is wholely adopting the example form provided.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+However, as it use the styled-component way to manage style, so you may find it difficult to figure out about the class & css.
+Also some components in GovUK design system site (e.g. Accordion) seems not yet included in this library.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### govuk-frontend
+[govuk-frontend](https://github.com/alphagov/govuk-frontend/)
+This library provides the style, image, fonts and js file needed to make something in govuk style.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To use it, I copied the assets from node_modules package and place them in src. Also I put a import statement in my sass file.
+Also, I installed 'sass' package to get sass compiled.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+After that, we need to put the GovUK classnames to relevant elements for this to work.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+I didn't put the js initAll script in index.html, as I worry that might affect react's own housekeeping too much.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**About the accordion**
+The accordion in this project is built with govuk-frontend. 
+I imported the vanilla js object and uses its .init function to setup the behaviour. 
+But personally I think this is not a preferrable way to work with React. If I have more time, I would try to reimplement the behaviour with react state & onClick function instead.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Also, I notice that the accordion's css need a parent element with classname 'js-enable' to work.
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
