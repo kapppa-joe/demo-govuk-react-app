@@ -6,6 +6,8 @@ import Start from './pages/Start';
 import DefaultBreadCrumbs from './components/DefaultBreadCrumbs';
 import Crown from './components/Crown'
 import MyForm from './pages/MyForm';
+import MultiStep1 from './pages/MultiStepForm/MultiStep1';
+import MultiStepForm from './pages/MultiStepForm/MultiStepForm';
 
 function App() {
   
@@ -25,6 +27,7 @@ function App() {
             <Route path="/start" element={<Start />} />
             <Route path="/form" element={<Form />} />
             <Route path="/myform" element={<MyForm />} />
+            <Route path="/multistep_form" element={<MultiStepForm />} />
             <Route path="/" element={<Navigate to="/start" />} />
             </Routes>
         </Main>
