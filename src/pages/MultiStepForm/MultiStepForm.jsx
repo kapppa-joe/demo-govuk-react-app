@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import * as GovUK from "govuk-react";
 import MultiStep1 from "./MultiStep1";
 import MultiStep2 from "./MultiStep2";
+import MultiStep3 from "./MultiStep3";
+import MultiStepSubmit from "./MultiStepSubmit";
 
 const MultiStepForm = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -37,6 +39,14 @@ const MultiStepForm = () => {
       case 2:
         return (
           <MultiStep2 data={formData} handleChange={handleChange} next={next} back={back} />
+        )
+      case 3:
+        return (
+          <MultiStep3 data={formData} handleChange={handleChange} next={next} back={back} />
+        )
+      case 4:
+        return (
+          <MultiStepSubmit data={formData} />
         )
       default:
         return <div>this page is under construction</div>
