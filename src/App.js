@@ -3,11 +3,10 @@ import { TopNav, Main, Footer } from 'govuk-react';
 
 import Form from './pages/Form';
 import Start from './pages/Start';
-import DefaultBreadCrumbs from './components/DefaultBreadCrumbs';
 import Crown from './components/Crown'
 import MyForm from './pages/MyForm';
-import MultiStep1 from './pages/MultiStepForm/MultiStep1';
 import MultiStepForm from './pages/MultiStepForm/MultiStepForm';
+import StepByStepForm from './pages/StepByStepForm/StepByStepForm';
 
 function App() {
   
@@ -22,12 +21,12 @@ function App() {
         serviceTitle={<TopNav.NavLink href="#">Alpaca Appointment Service</TopNav.NavLink>}
       />
         <Main>
-          <DefaultBreadCrumbs />
             <Routes>
             <Route path="/start" element={<Start />} />
             <Route path="/form" element={<Form />} />
             <Route path="/myform" element={<MyForm />} />
             <Route path="/multistep_form" element={<MultiStepForm />} />
+            <Route path="/booking_form/*" element={<StepByStepForm />} />
             <Route path="/" element={<Navigate to="/start" />} />
             </Routes>
         </Main>

@@ -13,10 +13,12 @@ import StartIcon from "../components/StartIcon";
 import { SmallFontParagraph as Small } from "../components/SmallFontParagraph";
 import SearchAlpaca from "../components/SearchAlpaca";
 import Accordion from "../components/Accordion";
+import DefaultBreadCrumbs from '../components/DefaultBreadCrumbs';
 
 const Start = () => {
   return (
     <section id="start">
+      <DefaultBreadCrumbs />
       <Caption>HMRC (Hoofed Mammals Recreation Centre)</Caption>
       <Heading size="XL">Alpaca Appointment Service</Heading>
 
