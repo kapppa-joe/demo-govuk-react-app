@@ -9,7 +9,6 @@ import MultiStepForm from './pages/MultiStepForm/MultiStepForm';
 import StepByStepForm from './pages/StepByStepForm/StepByStepForm';
 
 function App() {
-  
   return (
     <div className="App">
       <TopNav 

@@ -23,7 +23,6 @@ const Start = () => {
       <Heading size="XL">Alpaca Appointment Service</Heading>
 
       <GridRow>
-
       <GridCol>
         <P>Use this service to:</P>
         <UL mb="4" className="list-small-font">
